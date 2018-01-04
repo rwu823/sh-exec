@@ -40,3 +40,25 @@ git add .
 git commit -m '${version}'
 `
 ```
+
+## Promise Based
+
+```js
+sh`
+  curl -SL https://github.com/rwu823/sh-exec/tree/dev
+`
+.then((stdout) => {
+  console.log('done')
+})
+.catch((err) => {
+  console.error(err)
+})
+
+// or
+
+;(async () => {
+  const stdout = await sh`
+    curl https://a-url.com
+  `
+})()
+```

@@ -1,6 +1,6 @@
 {
   "name": "sh-exec",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "src/index.js",
   "repository": "https://github.com/rwu823/sh-exec.git",
   "author": "Rocky Wu <rwu823@gmail.com>",
