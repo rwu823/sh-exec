@@ -38,13 +38,12 @@ if (TRAVIS_BRANCH === 'master') {
     `
 
     // Publish to gh-pages
-    sh`
-      cd out
-      git init
-      git add .
-      git commit -anm "${version}"
-      git push ${tokenRepo} master:latest -f
-      git push ${tokenRepo} master:${version}
-    `
+    // sh`
+    //   cd out
+    //   git init
+    //   git add .
+    //   git commit -anm "${version}"
+    //   git push ${tokenRepo} master:gh-pages -f
+    // `
   }
 }
