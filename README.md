@@ -14,8 +14,8 @@
   <img src="https://img.shields.io/github/license/rwu823/sh-exec.svg?style=flat-square&" />
 </p>
 
-
 ## Why sh-exec?
+
 Use `Template literals` write shell script made happy ❤️.
 
 ## Installation
@@ -45,17 +45,16 @@ git commit -m '${version}'
 
 ```js
 sh`
-  curl -SL https://github.com/rwu823/sh-exec/tree/dev
+  curl https://a-url.com
 `
-.then((stdout) => {
-  console.log('done')
-})
-.catch((err) => {
-  console.error(err)
-})
+  .then((stdout) => {
+    console.log('done')
+  })
+  .catch((err) => {
+    console.error(err)
+  })
 
 // or
-
 ;(async () => {
   const stdout = await sh`
     curl https://a-url.com
