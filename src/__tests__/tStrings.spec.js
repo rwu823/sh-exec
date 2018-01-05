@@ -5,7 +5,7 @@ describe('tStrings Spec', () => {
     expect(tStrings`hello world`).toBe('hello world')
   })
 
-  it('tStrings to long text wait variable', () => {
+  it('tStrings to long text with variable', () => {
     const word = 'world'
     expect(tStrings`hello ${word}`).toBe('hello world')
   })
