@@ -1,1 +1,3 @@
-module.exports = require('@rwu823/eslint-config-base/.prettierrc.json')
+const base = require('@rwu823/base/prettier.config')
+
+module.exports = Object.assign(base, {})
