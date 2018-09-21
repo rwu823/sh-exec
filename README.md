@@ -41,6 +41,13 @@ git commit -m '${version}'
 `
 ```
 
+## Silent
+If you don't like to see the command output or something security issue.
+
+```js
+import { shSilent } from 'sh-exec'
+```
+
 ## Promise Based
 
 ```js

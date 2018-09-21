@@ -13,14 +13,7 @@
     "scripts"
   ],
   "devDependencies": {
-    "@rwu823/base": "https://github.com/rwu823/base",
-    "@rwu823/eslint-config-base": "https://github.com/rwu823/base#eslint-config-base",
-    "@types/jest": "^22.0.0",
-    "eslint": "^4.14.0",
-    "husky": "^0.14.3",
-    "jest": "^22.0.4",
-    "lint-staged": "^6.0.0",
-    "prettier": "^1.9.2"
+    "@rwu823/ts-base": "github:rwu823/ts-base"
   },
   "scripts": {
     "precommit": "lint-staged",
