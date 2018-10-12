@@ -1,4 +1,4 @@
-const tStrings = require('../tStrings')
+import tStrings from '../tStrings'
 
 describe('tStrings Spec', () => {
   it('tStrings to long text', () => {

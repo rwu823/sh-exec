@@ -1,0 +1,51 @@
+{
+  "exclude": [
+    "node_modules",
+    "out/**/*",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+  ],
+  "compilerOptions": {
+    /* =Module Resolution Options */
+    // "baseUrl": ".",
+    // "paths": {
+
+    // },
+
+    /* =Basic Options */
+    "target": "es6",
+    "lib": [
+      "dom",
+      "esnext",
+    ],
+    // "allowJs": true,
+    // "checkJs": true,
+    "removeComments": true,
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "outDir": "out",
+    "module": "commonjs",
+    "newLine": "lf",
+    "typeRoots": [
+      "node_modules/@types",
+      "./types"
+    ],
+
+    /* =Strict Type-Checking Options */
+    "strict": true,
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
+    // "strictPropertyInitialization": true,
+    // "strictFunctionTypes": true,
+    // "noImplicitThis": true,
+    // "alwaysStrict": true,
+
+    /* =Additional Checks */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    "forceConsistentCasingInFileNames": true,
+  }
+}
