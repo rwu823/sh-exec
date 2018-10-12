@@ -33,6 +33,11 @@ vars:
       paths:
         - out
 
+  push_to_codecov: &push_to_codecov
+    run:
+      name: Push To Codecov
+      command: bash <(curl -s https://codecov.io/bash)
+
   restore_out: &restore_out
     restore_cache:
       key: out#{{ .Revision }}
@@ -70,6 +75,7 @@ jobs:
       - run: yarn
       - *save_node_modules
       - run: yarn test
+      - *push_to_codecov
 
   npm:
     <<: *init
