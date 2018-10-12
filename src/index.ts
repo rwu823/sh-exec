@@ -1,4 +1,4 @@
-import shExec from "./libs/sh";
+import shExec from './libs/sh'
 
 const sh = shExec()
 const shSilent = shExec({ silent: true })

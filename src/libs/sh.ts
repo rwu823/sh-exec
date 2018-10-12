@@ -1,13 +1,11 @@
 import { exec } from 'child_process'
 import tStrings from '../utils/tStrings'
 
-type SHExec = {
-  (
-    options?: Partial<{
-      silent: boolean,
-    }>,
-  ): (tString: TemplateStringsArray, ...args: any[]) => Promise<string>,
-}
+type SHExec = (
+  options?: Partial<{
+    silent: boolean
+  }>,
+) => (tString: TemplateStringsArray, ...args: any[]) => Promise<string>
 
 const shExec: SHExec = (opts = {}) => (tString, ...args) =>
   new Promise((resolve, reject) => {

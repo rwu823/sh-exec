@@ -1,7 +1,7 @@
 {
   "name": "sh-exec",
   "version": "0.1.1",
-  "main": "src/index.js",
+  "main": ".",
   "repository": "https://github.com/rwu823/sh-exec.git",
   "author": "Rocky Wu <rwu823@gmail.com>",
   "license": "MIT",
@@ -13,18 +13,23 @@
     "scripts"
   ],
   "devDependencies": {
-    "@rwu823/ts-base": "github:rwu823/ts-base"
+    "@rwu823/ts-base": "github:rwu823/ts-base#latest"
   },
   "scripts": {
     "precommit": "lint-staged",
     "test": "jest --coverage",
     "lint": "eslint ./ --ignore-path ./.gitignore",
-    "build": "rm -rf out && mkdir out && cp -R package.json README.md src out"
+    "build": "rm -rf out && tsc && cp -R package.json README.md out"
   },
   "lint-staged": {
     "*.{js,md}": [
       "prettier --write",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
