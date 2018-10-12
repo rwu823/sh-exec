@@ -1,6 +1,6 @@
 {
   "name": "sh-exec",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "main": ".",
   "repository": "https://github.com/rwu823/sh-exec.git",
   "author": "Rocky Wu <rwu823@gmail.com>",
@@ -16,9 +16,8 @@
     "@rwu823/ts-base": "github:rwu823/ts-base#latest"
   },
   "scripts": {
-    "precommit": "lint-staged",
     "test": "jest --coverage",
-    "lint": "eslint ./ --ignore-path ./.gitignore",
+    "lint": "tslint -p .",
     "build": "rm -rf out && tsc && cp -R package.json README.md out"
   },
   "lint-staged": {

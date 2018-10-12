@@ -1,0 +1,99 @@
+version: 2
+
+vars:
+  init: &init
+    docker:
+      - image: circleci/node:8
+    environment:
+      TZ: Asia/Taipei
+
+  branch_is_deploy: &branch_is_deploy
+    filters:
+      branches:
+        only: master
+
+  branch_not_deploy: &branch_not_deploy
+    filters:
+      branches:
+        ignore: master
+
+  save_node_modules: &save_node_modules
+    save_cache:
+      key: node_modules#{{ checksum "yarn.lock" }}
+      paths:
+        - node_modules
+
+  restore_node_modules: &restore_node_modules
+    restore_cache:
+      key: node_modules#{{ checksum "yarn.lock" }}
+
+  save_out: &save_out
+    save_cache:
+      key: out#{{ .Revision }}
+      paths:
+        - out
+
+  restore_out: &restore_out
+    restore_cache:
+      key: out#{{ .Revision }}
+
+  setup_npm: &setup_npm
+    run:
+      name: Setup NPM
+      command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+
+jobs:
+  lint:
+    <<: *init
+    steps:
+      - checkout
+      - *restore_node_modules
+      - run: yarn
+      - *save_node_modules
+      - run: yarn lint
+
+  build:
+    <<: *init
+    steps:
+      - checkout
+      - *restore_node_modules
+      - run: yarn
+      - *save_node_modules
+      - run: yarn build && ls -al out
+      - *save_out
+
+  test:
+    <<: *init
+    steps:
+      - checkout
+      - *restore_node_modules
+      - run: yarn
+      - *save_node_modules
+      - run: yarn test
+
+  npm:
+    <<: *init
+    steps:
+      - *restore_out
+      - *setup_npm
+      - run: npm publish out
+
+workflows:
+  version: 2
+  Test & Lint & Build:
+      jobs:
+        - lint:
+            <<: *branch_not_deploy
+        - test:
+            <<: *branch_not_deploy
+        - build:
+            <<: *branch_not_deploy
+
+  Deploy to NPM:
+      jobs:
+        - build:
+            <<: *branch_is_deploy
+        - npm:
+            requires:
+              - build
+            <<: *branch_is_deploy
