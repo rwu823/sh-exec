@@ -1,11 +1,16 @@
 import { exec } from 'child_process'
 import tStrings from '../utils/tStrings'
 
+export type TypeExec = (
+  tString: TemplateStringsArray,
+  ...args: any[]
+) => Promise<string>
+
 type SHExec = (
   options?: Partial<{
-    silent: boolean
+    quiet: boolean
   }>,
-) => (tString: TemplateStringsArray, ...args: any[]) => Promise<string>
+) => TypeExec
 
 const shExec: SHExec = (opts = {}) => (tString, ...args) =>
   new Promise((resolve, reject) => {
@@ -19,7 +24,7 @@ const shExec: SHExec = (opts = {}) => (tString, ...args) =>
       resolve(output)
     })
 
-    if (!opts.silent) {
+    if (!opts.quiet) {
       child.stdout.on('data', console.log)
       child.stderr.on('data', console.log)
     }
