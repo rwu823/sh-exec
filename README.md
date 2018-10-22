@@ -1,19 +1,18 @@
-<p align="center">
+<h1 align="center">
   <img src="./logo.png" width="128" />
-</p>
+</h1>
 <p align="center">
   <a href="https://www.npmjs.com/package/sh-exec">
-    <img src="https://img.shields.io/npm/v/sh-exec.svg?style=flat-square&" />
+    <img src="https://flat.badgen.net/npm/v/sh-exec" />
   </a>
-  <a href="https://travis-ci.org/rwu823/sh-exec" alt="Build Status">
-    <img src="https://img.shields.io/travis/rwu823/sh-exec.svg?style=flat-square&" />
+  <a href="https://circleci.com/gh/rwu823/sh-exec" alt="Build Status">
+    <img src="https://flat.badgen.net/circleci/github/rwu823/sh-exec/master" />
   </a>
   <a href="https://codecov.io/gh/rwu823/sh-exec" alt="Coverage">
-    <img src="https://img.shields.io/codecov/c/github/rwu823/sh-exec/master.svg?style=flat-square&" />
+    <img src="https://flat.badgen.net/codecov/c/github/rwu823/sh-exec" />
   </a>
-  <img src="https://img.shields.io/github/license/rwu823/sh-exec.svg?style=flat-square&" />
+  <img src="https://flat.badgen.net/github/license/rwu823/sh-exec" />
 </p>
-
 ## Why sh-exec?
 
 Use `Template literals` write shell script made happy ❤️.
