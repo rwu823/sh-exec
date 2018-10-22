@@ -16,9 +16,9 @@
     "@rwu823/ts-base": "github:rwu823/ts-base#latest"
   },
   "scripts": {
-    "test": "jest --coverage",
+    "test": "yarn build && jest",
     "lint": "tslint -p .",
-    "build": "rm -rf out && tsc && cp -R package.json README.md out"
+    "build": "rm -rf out && tsc && cp -R package.json README.md src/index.d.ts out"
   },
   "lint-staged": {
     "*.{js,md}": [

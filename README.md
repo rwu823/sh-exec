@@ -41,11 +41,16 @@ git commit -m '${version}'
 `
 ```
 
-## Silent
-If you don't like to see the command output or something security issue.
+## Quiet
+
+If you don't like to see the command output or because some security issue.
+
+It's helpful in CI.
 
 ```js
-import { shSilent } from 'sh-exec'
+import sh from 'sh-exec'
+
+sh.quiet`echo "You can't see"`
 ```
 
 ## Promise Based
@@ -54,10 +59,10 @@ import { shSilent } from 'sh-exec'
 sh`
   curl https://a-url.com
 `
-  .then((stdout) => {
+  .then(stdout => {
     console.log('done')
   })
-  .catch((err) => {
+  .catch(err => {
     console.error(err)
   })
 
