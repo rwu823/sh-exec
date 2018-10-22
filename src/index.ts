@@ -4,5 +4,5 @@ const sh = shExec()
 
 export default sh
 
-exports = sh
-exports.quiet = shExec({ quiet: true })
+module.exports = sh
+module.exports.quiet = shExec({ quiet: true })
