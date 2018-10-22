@@ -1,6 +1,6 @@
 {
   "name": "sh-exec",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": ".",
   "repository": "https://github.com/rwu823/sh-exec.git",
   "author": "Rocky Wu <rwu823@gmail.com>",
